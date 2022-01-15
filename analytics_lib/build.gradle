@@ -12,7 +12,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.bolexueyuan'  // 你库的包名
                 artifactId = 'JJEvent'       // 你的库名
-                version = '1.0.4'            //版本号
+                version = '1.0.5'            //版本号
             }
         }
     }
@@ -28,7 +28,7 @@ android {
     buildTypes {
         release {
            // zipAlignEnabled true
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -50,22 +50,22 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 }
-
-task release_jj_analytics_lib_aar(group:"JJPackaged",type: Copy) {
-    delete('build/myaar')
-    from( 'build/outputs/aar')
-    into( 'build/mylibs')
-    include('analytics_lib-release.aar')
-    rename('analytics_lib-release.aar', 'jj-analytics-lib-v' + rootProject.ext.versionName +'-release'+ '.aar')
-}
-release_jj_analytics_lib_aar.dependsOn("build")
-
-task debug_jj_analytics_lib_aar(group:"JJPackaged",type: Copy) {
-    delete('build/myaar')
-    from( 'build/outputs/aar')
-    into( 'build/mylibs')
-    include('analytics_lib-debug.aar')
-    rename('analytics_lib-debug.aar', 'jj-analytics-lib-v' + rootProject.ext.versionName +'-debug'+ '.aar')
-}
-debug_jj_analytics_lib_aar.dependsOn("build")
+//
+//task release_jj_analytics_lib_aar(group:"JJPackaged",type: Copy) {
+//    delete('build/myaar')
+//    from( 'build/outputs/aar')
+//    into( 'build/mylibs')
+//    include('analytics_lib-release.aar')
+//    rename('analytics_lib-release.aar', 'jj-analytics-lib-v' + rootProject.ext.versionName +'-release'+ '.aar')
+//}
+//release_jj_analytics_lib_aar.dependsOn("build")
+//
+//task debug_jj_analytics_lib_aar(group:"JJPackaged",type: Copy) {
+//    delete('build/myaar')
+//    from( 'build/outputs/aar')
+//    into( 'build/mylibs')
+//    include('analytics_lib-debug.aar')
+//    rename('analytics_lib-debug.aar', 'jj-analytics-lib-v' + rootProject.ext.versionName +'-debug'+ '.aar')
+//}
+//debug_jj_analytics_lib_aar.dependsOn("build")
 
