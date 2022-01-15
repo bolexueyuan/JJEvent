@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ccj.client.android.analytics.JJEvent;
-import com.ccj.client.android.analytics.JJEventManager;
-import com.ccj.client.android.analytics.intercept.CookieFacade;
+import com.github.bolexueyuan.android.analytics.analytics.JJEvent;
+import com.github.bolexueyuan.android.analytics.analytics.JJEventManager;
+import com.github.bolexueyuan.android.analytics.analytics.intercept.CookieFacade;
 
 import java.util.HashMap;
 import java.util.Map;

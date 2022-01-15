@@ -98,7 +98,7 @@
 #-keep class com.ccj.client.android.analytics.**
 
 
-#-keep class com.ccj.client.android.analytics.JJEventManager* { *; }
+#-keep class JJEventManager* { *; }
 
 -keep class com.ccj.client.android.analytics.bean.**{*;}
 -keep class com.ccj.client.android.analytics.exception.**{*;}
@@ -116,10 +116,10 @@
       public protected *;
 }
 
-#-keepclasseswithmembers public class com.ccj.client.android.analytics.JJEvent***
+#-keepclasseswithmembers public class JJEvent***
 
-#-keepclassmembernames public class com.ccj.client.android.analytics.JJEvent {
+#-keepclassmembernames public class JJEvent {
 #public *;
 #}
 
-#-keepnames class com.ccj.client.android.analytics.JJEvent{ ;}
+#-keepnames class JJEvent{ ;}
