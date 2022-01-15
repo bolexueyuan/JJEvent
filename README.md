@@ -2,6 +2,31 @@
 
 原作者长期不更新，已经无法编译通过。我们升级了下gradle版本，并计划在此基础上进行二次封装。
 
+## 引入
+
+修改后的库发布在jitpack.io。
+
+![jitpack](https://jitpack.io/v/bolexueyuan/JJEvent.svg)
+
+添加jitpack的maven仓库
+
+```groovy
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+引入依赖
+
+```groovy
+	dependencies {
+	        implementation 'com.github.bolexueyuan:JJEvent:Tag'
+	}
+```
+
 以下是原README。
 
 ---
@@ -37,17 +62,17 @@
 
 
 
-`V1.0.0`功能列表 | 是否支持 |
---------|------|
-接口自定义 | 支持  |
-缓存策略 | 支持  |
-外部cookie注入 | 支持  |
-推送周期设定 | 支持 |
-强制推送 | 支持  |
-自定义埋点事件 | 支持  |
-独立运行 | 支持  |
-多线程写入 | 支持  |
-后台线程服务 | 支持  |
+| `V1.0.0`功能列表 | 是否支持 |
+|--------------|------|
+| 接口自定义        | 支持   |
+| 缓存策略         | 支持   |
+| 外部cookie注入   | 支持   |
+| 推送周期设定       | 支持   |
+| 强制推送         | 支持   |
+| 自定义埋点事件      | 支持   |
+| 独立运行         | 支持   |
+| 多线程写入        | 支持   |
+| 后台线程服务       | 支持   |
 
 
 注1:**代码已经经过线上项目验证, 横向Google统计对比,统计数据无丢失,性能稳定.**
