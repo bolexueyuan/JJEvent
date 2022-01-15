@@ -80,38 +80,32 @@ import static com.ccj.client.android.analytics.EConstant.TAG;
         EGson EGson = new GsonBuilder().disableHtmlEscaping().create();
         Map map = new HashMap();
         map.put("list", EGson.toJson(list));
-        ELogger.logWrite(TAG, "push map-->" + map.toString());
+        ELogger.logWrite(TAG, "push map-->" + map);
 
 
         EGsonRequest request = new EGsonRequest<>(Request.Method.POST, EConstant.COLLECT_URL, ResultBean.class, null, map,//191
-                new Response.Listener<ResultBean>() {
-                    @Override
-                    public void onResponse(ResultBean response) {
-                        int code = response.getError_code();
-                        String msg = "";
-                        ELogger.logWrite(TAG, response.toString());
+                (Response.Listener<ResultBean>) response -> {
+                    int code = response.getError_code();
+                    String msg = "";
+                    ELogger.logWrite(TAG, response.toString());
 
-                        if (code == 0) {
-                            responseListener.onPushSuccess();
-                            ELogger.logWrite(TAG, "--onPushSuccess--");
+                    if (code == 0) {
+                        responseListener.onPushSuccess();
+                        ELogger.logWrite(TAG, "--onPushSuccess--");
 
-                        } else {
-                            responseListener.onPushEorr(code);
-                            ELogger.logWrite(TAG, "--onPushEorr--");
-
-                        }
-
-                        isLoading = false;
+                    } else {
+                        responseListener.onPushEorr(code);
+                        ELogger.logWrite(TAG, "--onPushEorr--");
 
                     }
+
+                    isLoading = false;
+
                 },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        ELogger.logWrite(TAG, "--onVolleyError--");
-                        responseListener.onPushFailed();
-                        isLoading = false;
-                    }
+                error -> {
+                    ELogger.logWrite(TAG, "--onVolleyError--");
+                    responseListener.onPushFailed();
+                    isLoading = false;
                 }
         );
         queue.add(request);

@@ -16,9 +16,6 @@ public class EventBean implements Serializable{
     @Transient
     private static final long serialVersionUID = 9009411034336334765L;
 
-
-
-
     private int id;
 
     private String type;//统计类别,  EVENT,PV 等等
