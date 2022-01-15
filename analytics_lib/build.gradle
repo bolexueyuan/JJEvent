@@ -12,18 +12,18 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.bolexueyuan'  // 你库的包名
                 artifactId = 'JJEvent'       // 你的库名
-                version = '1.0.2'            //版本号
+                version = '1.0.3'            //版本号
             }
         }
     }
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 31
     }
     buildTypes {
         release {
