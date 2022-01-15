@@ -42,7 +42,7 @@ class EventDecorator {
     public static synchronized void initCookie(String cookieStr) {
         cookie = cookieStr;
         //添加sdk版本
-        cookie += "sv=" + getURLEncode(BuildConfig.VERSION_NAME) + ";";
+        cookie += "sv=" + getURLEncode("BuildConfig.VERSION_NAME") + ";"; // TODO 传入版本号
         cookie += "st=" + getURLEncode("android") + ";";
         ELogger.logWrite(TAG, "initCookie successful--> " + cookie);
     }
@@ -97,7 +97,7 @@ class EventDecorator {
 
         EventBean bean = new EventBean();
         //common
-        bean.setV(BuildConfig.VERSION_NAME);
+        bean.setV("BuildConfig.VERSION_NAME");// TODO 传入版本号
         bean.setIt(EventDecorator.getIT());
         bean.setTid(EventDecorator.getTID());
         bean.setSid(EventDecorator.getSID());
